@@ -1,0 +1,300 @@
+body {
+  background-color: white;
+  margin: 0;
+  font-family: 'OpenSans', sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #0a0a0a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+li {}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: #f1f1f1;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: #1a1a1a;
+}
+
+li.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #1a1a1a;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(20,20,20,0.6);
+  z-index: 1;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown-content a {
+  color: #eeeeee;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #2a2a2a;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.anim-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+#div1, #div2, #div3, #div4,
+#divani1, #divani2, #divani3, #divani4, #divani5, #divani6,
+#divani8, #divani9, #divani10 {
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
+#div1 {
+  width: 100px;
+  height: 100px;
+  background: #111;
+  transition: width 5s cubic-bezier(0.5, 0.2, 0.5, 2);
+}
+#div1:hover {
+  width: 300px;
+}
+
+#div2 {
+  width: 100px;
+  height: 100px;
+  background: #191919;
+  transition: width 2s ease-out, height 3s ease-in-out;
+}
+#div2:hover {
+  width: 600px;
+  height: 600px;
+}
+
+#div3 {
+  width: 100px;
+  height: 100px;
+  background: #2b2b2b;
+  transition: width 2.5s ease-in-out;
+  transition-delay: 0.5s;
+}
+#div3:hover {
+  width: 300px;
+}
+
+#div4 {
+  width: 100px;
+  height: 100px;
+  background: #333333;
+  transition: width 2.5s ease-in, height 2.5s ease-out, transform 3s linear;
+}
+#div4:hover {
+  width: 500px;
+  height: 500px;
+  transform: rotate(720deg);
+}
+
+#divani1 {
+  width: 100px;
+  height: 100px;
+  background-color: #0d0d0d;
+  animation-name: fadeToGray1;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeToGray1 {
+  from {background-color: #0d0d0d;}
+  to {background-color: #3d3d3d;}
+}
+
+#divani2 {
+  width: 100px;
+  height: 100px;
+  background-color: #1a1a1a;
+  animation-name: fadeToGray2;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeToGray2 {
+  0%   {background-color: #1a1a1a;}
+  50%  {background-color: #333333;}
+  100% {background-color: #4d4d4d;}
+}
+
+#divani3 {
+  width: 100px;
+  height: 100px;
+  background-color: #1a1a1a;
+  position: relative;
+  animation-name: moveInGrayCircle;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+@keyframes moveInGrayCircle {
+  0%   {background-color:#0d0d0d; left:0px; top:0px;}
+  25%  {background-color:#222222; left:200px; top:0px;}
+  50%  {background-color:#383838; left:200px; top:200px;}
+  75%  {background-color:#4d4d4d; left:0px; top:200px;}
+  100% {background-color:#1a1a1a; left:0px; top:0px;}
+}
+
+#divani4 {
+  width: 100px;
+  height: 100px;
+  background-color: #1f1f1f;
+  position: relative;
+  animation-name: delayGrayMove;
+  animation-duration: 4s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes delayGrayMove {
+  0%   {background-color:#1f1f1f; left:0px; top:0px;}
+  25%  {background-color:#2f2f2f; left:200px; top:0px;}
+  50%  {background-color:#3f3f3f; left:200px; top:200px;}
+  75%  {background-color:#4f4f4f; left:0px; top:200px;}
+  100% {background-color:#1f1f1f; left:0px; top:0px;}
+}
+
+#divani5 {
+  width: 100px;
+  height: 100px;
+  background-color: #101010;
+  position: relative;
+  animation-name: zigzagBlack;
+  animation-duration: 4s;
+  animation-iteration-count: 3;
+  animation-fill-mode: forwards;
+}
+@keyframes zigzagBlack {
+  0%   {background-color:#0d0d0d; left:0px; top:0px;}
+  25%  {background-color:#2a2a2a; left:200px; top:0px;}
+  50%  {background-color:#444444; left:200px; top:200px;}
+  75%  {background-color:#5c5c5c; left:0px; top:200px;}
+  100% {background-color:#0d0d0d; left:0px; top:0px;}
+}
+
+#divani6 {
+  width: 100px;
+  height: 100px;
+  background-color: #202020;
+  position: relative;
+  animation-name: bounceGray;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+@keyframes bounceGray {
+  0%   {background-color:#1a1a1a; left:0px; top:0px;}
+  25%  {background-color:#2e2e2e; left:200px; top:0px;}
+  50%  {background-color:#3e3e3e; left:200px; top:200px;}
+  75%  {background-color:#4e4e4e; left:0px; top:200px;}
+  100% {background-color:#1a1a1a; left:0px; top:0px;}
+}
+
+.anim-box {
+  width: 100px;
+  height: 50px;
+  color: white;
+  background-color: #2b2b2b;
+  font-weight: bold;
+  position: relative;
+  animation-name: slideBox;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+}
+@keyframes slideBox {
+  from {left: 0px;}
+  to {left: 500px;}
+}
+
+.linear { animation-timing-function: linear; }
+.ease { animation-timing-function: ease; }
+.ease-in { animation-timing-function: ease-in; }
+.ease-out { animation-timing-function: ease-out; }
+.ease-in-out { animation-timing-function: ease-in-out; }
+
+#divani8 {
+  width: 100px;
+  height: 100px;
+  background-color: #0c0c0c;
+  position: relative;
+  animation-name: alternateBlack;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes alternateBlack {
+  0%   {background-color:#0a0a0a; left:0px; top:0px;}
+  25%  {background-color:#262626; left:200px; top:0px;}
+  50%  {background-color:#404040; left:200px; top:200px;}
+  75%  {background-color:#595959; left:0px; top:200px;}
+  100% {background-color:#0a0a0a; left:0px; top:0px;}
+}
+
+#divani9 {
+  width: 100px;
+  height: 100px;
+  background-color: #141414;
+  position: relative;
+  animation-name: spinDark;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#divani10 {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(41, 41, 41);
+  position: relative;
+  animation-name: slideDown;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes slideDown {
+  from {top: 0;}
+  to {top: 400px;}
+}
+
+/* General spacing for animated divs */
+.anim-container > div {
+  /* consistent size with some margin */
+  margin: 10px;
+}
+
+@keyframes spinDark {
+  0%   {background-color:#0a0a0a; transform: rotate(0deg);}
+  100% {background-color:#444444; transform: rotate(360deg);}
+}

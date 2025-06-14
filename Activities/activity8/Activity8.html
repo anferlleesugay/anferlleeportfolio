@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NU Quest</title>
+    <link rel="icon" type="image/x-icon" href="/photos/favicon.ico">
+    <style>
+       * {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.navbar {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 5px solid #333333;
+}
+
+.navbar-title {
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+.text-info {
+    font-size: 20px;
+    font-weight: lighter;
+    color: #333333;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.reminder-box {
+    background-color: #f5f5f5;
+    border-left: 6px solid #555555;
+    padding: 12px 16px;
+    margin: 15px auto;
+    width: 90%;
+    color: #111111;
+    font-size: 14px;
+}
+
+.term {
+    margin-left: 35px;
+    border-bottom: 1px solid #333333;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    margin-right: 35px;
+    width: calc(100% - 70px);
+}
+
+.application {
+    margin-left: 35px;
+    background-color: #ffffff;
+    padding: 15px;
+    width: 100%;
+    max-width: 450px;
+    margin: 20px;
+}
+
+.application h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.application span {
+    color: #000000;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -8px;
+}
+
+.form-col {
+    flex: 1;
+    padding: 0 8px;
+    min-width: 230px;
+    margin-bottom: 12px;
+}
+
+select,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"] {
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    border: 1px solid #444444;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    color: #000000;
+    transition: border 0.3s ease;
+    width: 100%;
+}
+
+select:focus,
+input:focus {
+    border-color: #000000;
+    outline: none;
+}
+
+optgroup {
+    font-weight: bold;
+    color: #000000;
+}
+
+option {
+    padding: 8px;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.required:after {
+    content: '*';
+    color: #000000;
+    margin-left: 3px;
+}
+
+.help-text {
+    font-size: 12px;
+    color: #333333;
+    margin-top: 5px;
+    margin-bottom: 12px;
+}
+
+.note {
+    margin: 10px 35px;
+    color: #000000;
+    font-size: 12px;
+}
+
+.privacy-agreement {
+    background-color: #f5f5f5;
+    border-left: 6px solid #555555;
+    padding: 12px 16px;
+    margin: 20px auto;
+    width: 90%;
+    color: #111111;
+    font-size: 14px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 8px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+    margin-top: 3px;
+    width: 14px;
+    height: 14px;
+    accent-color: #000000;
+}
+
+.checkbox-container label {
+    font-size: 12px;
+    margin-bottom: 0;
+    font-weight: normal;
+    color: #000000;
+}
+
+.button-group {
+    margin: 20px 35px;
+    display: flex;
+    gap: 8px;
+}
+
+.btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #333333;
+}
+
+.btn-primary:hover {
+    background-color: #000000;
+}
+
+.btn-danger {
+    background-color: #555555;
+}
+
+.btn-danger:hover {
+    background-color: #222222;
+}
+
+.form-section {
+    margin-left: 35px;
+    margin-right: 35px;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #000000;
+}
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-title">
+            NU QUEST
+        </div>
+    </div>
+
+    <h3 class="text-info">Online Application</h3>
+
+    <div class="reminder-box">
+        <h3>Reminder</h3>
+        <p>
+            Please provide your correct and complete information.<br>
+            Fields marked with asterisk (<span style="color: red;">*</span>) are required.
+        </p>
+    </div>
+
+    <h3 class="term">
+        Application Term & Course/Strand
+    </h3>
+
+    <div class="form-section">
+        <div class="form-group">
+            <h4>Campus:<span style="color: red;">*</span></h4>
+            <select name="campus" id="campus">
+                <optgroup label="National Capital Region (NCR)">
+                    <option value="NU Manila">NU Manila</option>
+                    <option value="NU Fairview">NU Fairview</option>
+                    <option value="NU MOA">NU MOA</option>
+                    <option value="NU East Ortigas">NU East Ortigas</option>
+                    <option value="NU Las Piñas">NU Las Piñas</option>
+                </optgroup>
+                <optgroup label="Region III (Central Luzon)">
+                    <option value="NU Baliwag">NU Baliwag</option>
+                    <option value="NU Clark" selected>NU Clark</option>
+                </optgroup>
+                <optgroup label="Region IV-A (CALABARZON)">
+                    <option value="NU Laguna">NU Laguna</option>
+                    <option value="NU Dasmariñas">NU Dasmariñas</option>
+                    <option value="NU Lipa">NU Lipa</option>
+                </optgroup>
+                <optgroup label="Region VI (Western Visayas)">
+                    <option value="NU Bacolod">NU Bacolod</option>
+                </optgroup>
+                <optgroup label="Region VII (Central Visayas)">
+                    <option value="NU Cebu">NU Cebu</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <div class="form-col">
+                <h4>Academic Year:<span style="color: red;">*</span></h4>
+                <select id="academicYear" name="academicYear">
+                    <option value="2026-2027" selected>2025 - 2026</option>
+                    <option value="2025-2026">2026 - 2027</option>
+                    <option value="2024-2025">2027 - 2028</option>
+                </select>
+            </div>
+            <div class="form-col">
+                <h4>Academic Term:<span style="color: red;">*</span></h4>
+                <select id="academicTerm" name="academicTerm">
+                    <option value="1st" selected>1st</option>
+                    <option value="2nd">2nd</option>
+                    <option value="3rd">3rd</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h4>Applying For:<span style="color: red;">*</span></h4>
+            <select id="applyingFor" name="applyingFor">
+                <optgroup label="Basic Education">
+                    <option value="Grade 11">Grade 11</option>
+                    <option value="Grade 12">Grade 12</option>
+                </optgroup>
+
+                <optgroup label="Higher Education">
+                    <option value="Freshman">Freshman</option>
+                    <option value="Transferee">Transferee</option>
+                    <option value="Second Degree Taker">Second Degree Taker</option>
+                    <option value="Cross Enrollee">Cross Enrollee</option>
+                    <option value="Graduate Studies">Graduate Studies</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <h4>Academic Program:<span style="color: red;">*</span></h4>
+            <select id="academicProgram" name="academicProgram">
+                <optgroup label="Senior High School (SHS)">
+                    <option value="ABM">Accountancy, Business, and Management (ABM)</option>
+                    <option value="HUMSS">Humanities and Social Studies (HUMSS)</option>
+                    <option value="STEM">Science, Technology, Engineering and Mathematics (STEM)</option>
+                </optgroup>
+
+                <optgroup label="School of Education, Arts, and Sciences (SEAS)">
+                    <option value="BAComm">BACHELOR OF ARTS IN COMMUNICATION (BAComm)</option>
+                    <option value="BAPolSci">BACHELOR OF ARTS IN POLITICAL SCIENCE (BAPolSci)</option>
+                    <option value="BSMT">BACHELOR OF SCIENCE IN MEDICAL TECHNOLOGY (BSMT)</option>
+                    <option value="BSPsy">BACHELOR OF SCIENCE IN PSYCHOLOGY (BSPsy)</option>
+                </optgroup>
+
+                <optgroup label="School of Accountancy, Business and Management (SABM)">
+                    <option value="BSAccountancy">BACHELOR OF SCIENCE IN ACCOUNTANCY (BSAccountancy)</option>
+                    <option value="BSBA-MktgMgmt">BACHELOR OF SCIENCE IN BUSINESS ADMINISTRATION MAJOR IN MARKETING MANAGEMENT (BSBA-MktgMgmt)</option>
+                    <option value="BSMA">BACHELOR OF SCIENCE IN MANAGEMENT ACCOUNTING (BSMA)</option>
+                    <option value="BSTM">BACHELOR OF SCIENCE IN TOURISM MANAGEMENT (BSTM)</option>
+                </optgroup>
+
+                <optgroup label="School of Engineering, Architecture and Technology">
+                    <option value="BSArch">BACHELOR OF SCIENCE IN ARCHITECTURE (BSArch)</option>
+                    <option value="BSCE">BACHELOR OF SCIENCE IN CIVIL ENGINEERING (BSCE)</option>
+                    <option value="BSCpE">BACHELOR OF SCIENCE IN COMPUTER ENGINEERING (BSCpE)</option>
+                    <option value="BSIT">BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY WITH SPECIALIZATION IN MOBILE AND WEB APPLICATION (BSIT)</option>
+                </optgroup>
+
+                <optgroup label="Academic Office (ACAD)">
+                    <option value="DMD">DOCTOR OF DENTAL MEDICINE (DMD)</option>
+                </optgroup>
+            </select>
+            <div class="help-text">Select entry level to view offered courses.</div>
+        </div>
+    </div>
+<br>
+    <h3 class="term">
+        Basic Information
+    </h3>
+    
+
+    <div class="note">
+        <p>❗Note: Please write your names based on your PSA/NSO copy of birth certificate.</p>
+        <p>For married females who wanted to use their married name, write your names based on your marriage certificate.</p>
+    </div>
+
+    <form action="createaccount.html" method="get">
+    <div class="form-section">
+        <div class="form-group">
+            <h4>First Name:<span style="color: red;">*</span></h4>
+            <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+        </div>        
+
+        <div class="form-group">
+            <h4>Middle Name:</h4>
+            <input type="text" id="middleName" name="middleName" placeholder="Leave it blank if not applicable">
+        </div>
+
+        <div class="form-group">
+            <h4>Last Name:<span style="color: red;">*</span></h4>
+            <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+        </div>
+
+        <div class="form-group">
+            <h4>Date of Birth:<span style="color: red;">*</span></h4>
+            <input type="text" id="birthDate" name="birthDate" placeholder="mm/dd/yyyy" required>
+        </div>
+
+        <div class="form-group">
+            <h4>Email Address:<span style="color: red;">*</span></h4>
+            <input type="email" id="email" name="email" placeholder="johndoe123@gmail.com" required>
+        </div>
+
+        <div class="form-group">
+            <h4>Mobile No.:<span style="color: red;">*</span></h4>
+            <input type="tel" id="mobile" name="mobile" placeholder="(09) 12345-6789" required>
+        </div>
+
+        <div class="form-group">
+            <h4>Nationality:<span style="color: red;">*</span></h4>
+            <select id="nationality" name="nationality" required>
+                <option value="" selected disabled>Select nationality</option>
+                <option value="Filipino">Filipino</option>
+                <option value="Afghan">Afghan</option>
+                <option value="Aland Islands">Aland Islands</option>
+                <option value="Albanian">Albanian</option>
+                <option value="Algerian">Algerian</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="privacy-agreement">
+        <h3>Data Privacy Agreement</h3>
+        <div class="checkbox-container">
+            <input type="checkbox" id="privacyConsent" name="privacyConsent" required>
+            <label for="privacyConsent">
+                By accomplishing this form, I hereby authorize National University to retain, process, disseminate, and use for research purposes all the personal data that I provided. I understand and give consent to National University to use these information to communicate with me either via post, telephone, mobile text, email or other way possible. In the event that I do not wish to be contacted further, I shall inform the University accordingly.
+            </label>
+        </div>
+    </div>
+
+    <div class="button-group">
+        <form action="createaccount.html" method="get">
+           
+        
+            <button type="submit" class="btn btn-primary">✓ Create Account</button>
+        </form>
+        
+        <button type="button" class="btn btn-danger">✕ Cancel</button>
+    </div>
+</body>
+</html>

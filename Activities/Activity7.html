@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar 2</title>
+    <link rel="icon" type="image/x-icon" href="/photos/favicon.ico">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 16.7% 16.7% 16.7% 16.7% 16.7% 16.7%;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .month-box, .holiday-box {
+            text-align: center;
+            padding: 15px 10px;
+            border-radius: 5px;
+        }
+
+        .month-box a, .holiday-box a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        h1 {
+            margin: 30px 0 20px;
+            color: #000000;
+        }
+
+        h2 {
+            margin: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .sunday {
+            color: #ff0000;
+        }
+
+        .holiday {
+            background-color: #838383;
+            font-weight: bold;
+        }
+
+        .holiday a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            font-size: 0.9em;
+        }
+
+        .month-title {
+            background-color: #f5f5f5;
+            padding: 12px;
+            margin-bottom: 5px;
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+
+    .calendar-container {
+        width: 100vw;
+        height: 100vh;
+        box-sizing: border-box;
+        padding: 20px;
+        overflow-y: auto;
+    }
+
+    .calendar-container .month-title {
+        font-size: 36px;
+        padding: 20px;
+    }
+
+    .calendar-container table {
+        height: calc(100% - 100px);
+        table-layout: fixed;
+    }
+
+    </style>
+</head>
+<body>
+<h1>2025 CALENDAR</h1>
+<br>
+<br>
+    <h1>MONTHS</h1>
+    <div class="grid-container">
+        <div class="month-box" style="background-color: #000000; color: #eeeeee;">
+            <a href="#january"><h2>January</h2></a>
+        </div>
+        <div class="month-box" style="background-color: #696969; color: #ffffff;">
+            <a href="#february"><h2>February</h2></a>
+        </div>
+        <div class="month-box" style="background-color: #000000; color: #eeeeee;">
+            <a href="#march"><h2>March</h2></a>
+        </div>
+        <div class="month-box" style="background-color: #696969; color: #ffffff;">
+            <a href="#april"><h2>April</h2></a>
+        </div>
+        <div class="month-box" style="background-color: #000000; color: #eeeeee;">
+            <a href="#may"><h2>May</h2></a>
+        </div>
+        <div class="month-box" style="background-color: #696969; color: #eeeeee;">
+            <a href="#june"><h2>June</h2></a>
+        </div>
+        <div class="month-box" style="background-color: #696969; color: #eeeeee;">
+            <a href="#july"><h2>July</h2></a>
+        </div>
+        <div class="month-box" style="background-color: #000000; color: #eeeeee;">
+            <a href="#august"><h2>August</h2></a>
+        </div>
+        <div class="month-box" style="background-color: #696969; color: #eeeeee;">
+            <a href="#september"><h2>September</h2></a>
+        </div>
+        <div class="month-box" style="background-color: #000000; color: #eeeeee;">
+            <a href="#october"><h2>October</h2></a>
+        </div>
+        <div class="month-box" style="background-color: #696969; color: #eeeeee;">
+            <a href="#november"><h2>November</h2></a>
+        </div>
+        <div class="month-box" style="background-color: #000000; color: #eeeeee;">
+            <a href="#december"><h2>December</h2></a>
+        </div>
+    </div>
+
+    <h1>HOLIDAYS</h1>
+    <div class="grid-container">
+        <div class="holiday-box" style="background-color: #696969; color: #eeeeee;">
+            <a href="#newyear"><h2>January 1<br>New Year's Day</h2></a>
+        </div>
+        <div class="holiday-box" style="background-color: #000000; color: #eeeeee;">
+            <a href="#eid"><h2>April 1<br>Eid'l Fitr</h2></a>
+        </div>
+        <div class="holiday-box" style="background-color: #696969; color: #eeeeee;">
+            <a href="#araw"><h2>April 9<br>Araw ng Kagitingan</h2></a>
+        </div>
+        <div class="holiday-box" style="background-color: #000000; color: #eeeeee;">
+            <a href="#maundy"><h2>April 17<br>Maundy Thursday</h2></a>
+        </div>
+        <div class="holiday-box" style="background-color: #696969; color: #eeeeee;">
+            <a href="#good"><h2>April 18<br>Good Friday</h2></a>
+        </div>
+        <div class="holiday-box" style="background-color: #000000; color: #eeeeee;">
+            <a href="#labor"><h2>May 1<br>Labor Day</h2></a>
+        </div>
+        <div class="holiday-box" style="background-color: #000000; color: #eeeeee;">
+            <a href="#independence"><h2>June 12<br>Independence Day</h2></a>
+        </div>
+        <div class="holiday-box" style="background-color: #696969; color: #eeeeee;">
+            <a href="#hero"><h2>August 25<br>National Heroes Day</h2></a>
+        </div>
+        <div class="holiday-box" style="background-color: #000000; color: #eeeeee;">
+            <a href="#bonifacio"><h2>November 30<br>Bonifacio Day</h2></a>
+        </div>
+        <div class="holiday-box" style="background-color: #696969; color: #eeeeee;">
+            <a href="#christmas"><h2>December 25<br>Christmas Day</h2></a>
+        </div>
+        <div class="holiday-box" style="background-color: #000000; color: #eeeeee;">
+            <a href="#rizal"><h2>December 30<br>Rizal Day</h2></a>
+        </div>
+    </div>
+
+    <div class="calendar-container">
+        <div id="january" class="month-title" style="background-color: #000000; color: #eeeeee;">January</div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="sunday">SUN</th>
+                    <th>MON</th>
+                    <th>TUE</th>
+                    <th>WED</th>
+                    <th>THU</th>
+                    <th>FRI</th>
+                    <th>SAT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sunday"></td>
+                    <td></td>
+                    <td></td>
+                    <td id="newyear" class="holiday">1 <br><a>New Year's Day</a></td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td class="sunday">5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td class="sunday">12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <td class="sunday">19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td class="sunday">26</td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td>31</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <div id="february" class="month-title" style="background-color: #696969; color: #ffffff;">February</div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="sunday">SUN</th>
+                    <th>MON</th>
+                    <th>TUE</th>
+                    <th>WED</th>
+                    <th>THU</th>
+                    <th>FRI</th>
+                    <th>SAT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sunday"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td class="sunday">2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td class="sunday">9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td class="sunday">16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td class="sunday">23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <div id="march" class="month-title" style="background-color: #000000; color: #ffffff;">March</div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="sunday">SUN</th>
+                    <th>MON</th>
+                    <th>TUE</th>
+                    <th>WED</th>
+                    <th>THU</th>
+                    <th>FRI</th>
+                    <th>SAT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sunday"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td class="sunday">2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td class="sunday">9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td class="sunday">16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td class="sunday">23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                </tr>
+                <tr>
+                    <td class="sunday">30</td>
+                    <td>31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <div id="april" class="month-title" style="background-color: #696969; color: #ffffff;">April</div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="sunday">SUN</th>
+                    <th>MON</th>
+                    <th>TUE</th>
+                    <th>WED</th>
+                    <th>THU</th>
+                    <th>FRI</th>
+                    <th>SAT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sunday"></td>
+                    <td></td>
+                    <td id="eid" class="holiday">1<br><a>Eid'l Fitr</a></td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td class="sunday">6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td id="araw" class="holiday">9<br><a>Araw ng Kagitingan</a></td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td class="sunday">13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td id="maundy" class="holiday">17<br><a>Maundy Thursday</a></td>
+                    <td id="good" class="holiday">18<br><a>Good Friday</a></td>
+                    <td>19</td>
+                </tr>
+                <tr>
+                    <td class="sunday">20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                </tr>
+                <tr>
+                    <td class="sunday">27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <div id="may" class="month-title" style="background-color: #000000; color: #ffffff;">May</div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="sunday">SUN</th>
+                    <th>MON</th>
+                    <th>TUE</th>
+                    <th>WED</th>
+                    <th>THU</th>
+                    <th>FRI</th>
+                    <th>SAT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sunday"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="labor" class="holiday">1<br><a>Labor Day</a></td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td class="sunday">4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td class="sunday">11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                </tr>
+                <tr>
+                    <td class="sunday">18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                </tr>
+                <tr>
+                    <td class="sunday">25</td>
+                    <td>26</td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td>31</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <div id="june" class="month-title" style="background-color: #696969; color: #ffffff;">June</div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="sunday">SUN</th>
+                    <th>MON</th>
+                    <th>TUE</th>
+                    <th>WED</th>
+                    <th>THU</th>
+                    <th>FRI</th>
+                    <th>SAT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sunday">1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td class="sunday">8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td id="independence" class="holiday">12<br><a>Independence Day</a></td>
+                    <td>13</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td class="sunday">15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                </tr>
+                <tr>
+                    <td class="sunday">22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td>27</td>
+                    <td>28</td>
+                </tr>
+                <tr>
+                    <td class="sunday">29</td>
+                    <td>30</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <div id="july" class="month-title" style="background-color: #000000; color: #ffffff;">July</div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="sunday">SUN</th>
+                    <th>MON</th>
+                    <th>TUE</th>
+                    <th>WED</th>
+                    <th>THU</th>
+                    <th>FRI</th>
+                    <th>SAT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sunday"></td>
+                    <td></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td class="sunday">6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td class="sunday">13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                </tr>
+                <tr>
+                    <td class="sunday">20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                </tr>
+                <tr>
+                    <td class="sunday">27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td>31</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <div id="august" class="month-title" style="background-color: #696969; color: #ffffff;">August</div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="sunday">SUN</th>
+                    <th>MON</th>
+                    <th>TUE</th>
+                    <th>WED</th>
+                    <th>THU</th>
+                    <th>FRI</th>
+                    <th>SAT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sunday"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>1</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td class="sunday">3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td class="sunday">10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                </tr>
+                <tr>
+                    <td class="sunday">17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <td class="sunday">24</td>
+                    <td id="hero" class="holiday">25<br><a>National Heroes Day</a></td>
+                    <td>26</td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td class="sunday">31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <div id="september" class="month-title" style="background-color: #000000; color: #ffffff;">September</div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="sunday">SUN</th>
+                    <th>MON</th>
+                    <th>TUE</th>
+                    <th>WED</th>
+                    <th>THU</th>
+                    <th>FRI</th>
+                    <th>SAT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sunday"></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td class="sunday">7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td class="sunday">14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td class="sunday">21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td>27</td>
+                </tr>
+                <tr>
+                    <td class="sunday">28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <div id="october" class="month-title" style="background-color: #696969; color: #ffffff;">October</div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="sunday">SUN</th>
+                    <th>MON</th>
+                    <th>TUE</th>
+                    <th>WED</th>
+                    <th>THU</th>
+                    <th>FRI</th>
+                    <th>SAT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sunday"></td>
+                    <td></td>
+                    <td></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td class="sunday">5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td class="sunday">12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <td class="sunday">19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td class="sunday">26</td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td>31</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <div id="november" class="month-title" style="background-color: #000000; color: #ffffff;">November</div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="sunday">SUN</th>
+                    <th>MON</th>
+                    <th>TUE</th>
+                    <th>WED</th>
+                    <th>THU</th>
+                    <th>FRI</th>
+                    <th>SAT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sunday"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td class="sunday">2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td class="sunday">9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td class="sunday">16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td class="sunday">23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                </tr>
+                <tr>
+                    <td id="bonifacio" class="sunday holiday">30<br><a>Bonifacio Day</a></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <div id="december" class="month-title" style="background-color: #696969; color: #ffffff;">December</div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="sunday">SUN</th>
+                    <th>MON</th>
+                    <th>TUE</th>
+                    <th>WED</th>
+                    <th>THU</th>
+                    <th>FRI</th>
+                    <th>SAT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sunday"></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td class="sunday">7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td class="sunday">14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td class="sunday">21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td id="christmas" class="holiday">25<br><a>Christmas Day</a></td>
+                    <td>26</td>
+                    <td>27</td>
+                </tr>
+                <tr>
+                    <td class="sunday">28</td>
+                    <td>29</td>
+                    <td id="rizal" class="holiday">30<br><a>Rizal Day</a></td>
+                    <td>31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
